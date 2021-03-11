@@ -11,3 +11,4 @@ Stage 1. Naming conventions
 
 -remove hardcoded values
 -validate your input values
+-replace the if-then-else with switch

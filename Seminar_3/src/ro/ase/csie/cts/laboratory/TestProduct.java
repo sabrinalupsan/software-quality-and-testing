@@ -11,7 +11,6 @@ public class TestProduct {
 		try {
 			product.getFinalPrice(ProductType.DISCOUNT, 0, 0);
 		} catch (InvalidPriceException | InvalidAccountAgeException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

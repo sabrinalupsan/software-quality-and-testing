@@ -1,4 +1,4 @@
-package ro.ase.csie.cts.laboratory;
+package ro.ase.csie.cts.laboratory.stage3;
 
 import ro.ase.csie.cts.laboratory.exceptions.InvalidAccountAgeException;
 import ro.ase.csie.cts.laboratory.exceptions.InvalidPriceException;

@@ -2,28 +2,44 @@ package ro.ase.csie.cts.laboratory.stage3;
 
 import ro.ase.csie.cts.laboratory.exceptions.InvalidAccountAgeException;
 import ro.ase.csie.cts.laboratory.exceptions.InvalidPriceException;
+import ro.ase.csie.cts.laboratory.services.MarketingInterface;
+import ro.ase.csie.cts.laboratory.services.MarketingStrategySpring2021;
+import ro.ase.csie.cts.laboratory.services.ValidatorInterface;
+import ro.ase.csie.cts.laboratory.services.ValidatorService;
 
 public class Product {
-
-	public static final int MAX_ACCOUNT_AGE = 10;
-	public static final float MAX_FIDELITY_DISCOUNT = 0.15f;
 	
-	public static void validatePrice(float price) throws InvalidPriceException
+	//NOT LIKE THIS!
+	//MarketingInterface marketingService = new MarketingStrategySpring2021();
+	//ValidatorInterface validatorService = new ValidatorService();
+	
+	MarketingInterface marketingService = null;
+	ValidatorInterface validatorService = null;
+	
+	public Product(MarketingInterface marketingService, ValidatorInterface validatorService)
 	{
-		if(price <= 0)
-			throw new InvalidPriceException();
+		if(marketingService == null)
+			throw new NullPointerException();
+		if(validatorService == null)
+			throw new NullPointerException();
+		setMarketingStrategy(marketingService);
+		this.validatorService = validatorService;
 	}
 	
-	public static void validateAccountAge(int accountAgeInYears) throws InvalidAccountAgeException
+	public Product()
 	{
-		if(accountAgeInYears < 0)
-			throw new InvalidAccountAgeException();
+		for(Object service : TestProduct.services)
+		{
+			if(service instanceof MarketingInterface)
+				this.marketingService = (MarketingInterface)service;
+			if(this.marketingService == null)
+				throw new UnsupportedOperationException();
+		}
 	}
 	
-	public static float getFidelityDiscount(int accountAgeInYears)
+	public void setMarketingStrategy(MarketingInterface marketingService)
 	{
-		return (accountAgeInYears > MAX_ACCOUNT_AGE) ? MAX_FIDELITY_DISCOUNT
-				: (float) accountAgeInYears / 100;
+		this.marketingService = marketingService;
 	}
 	
 	public static float getPriceWithDiscount(float initialPrice, float discountValue)
@@ -33,11 +49,11 @@ public class Product {
 
 	public float getFinalPrice(ProductType productType, float initialPrice, int accountAgeInYears) throws InvalidPriceException, InvalidAccountAgeException {
 		
-		validateAccountAge(accountAgeInYears);
-		validatePrice(initialPrice);
+		validatorService.validateAccountAge(accountAgeInYears);
+		validatorService.validatePrice(initialPrice);
 		
 		float fidelityDiscount = 
-				(productType == ProductType.NEW) ? 0 : getFidelityDiscount(accountAgeInYears);
+				(productType == ProductType.NEW) ? 0 : marketingService.getFidelityDiscount(accountAgeInYears);
 				
 		float discountValue = productType.getDiscount();
 		float priceWithDiscount = getPriceWithDiscount(initialPrice, discountValue);

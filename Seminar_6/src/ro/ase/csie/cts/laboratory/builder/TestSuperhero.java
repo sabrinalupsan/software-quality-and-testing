@@ -12,6 +12,5 @@ public class TestSuperhero {
 	Superhero superman = new Superhero.SuperheroBuilder("Superman", 100).build();
 	Superhero joker = new Superhero.SuperheroBuilder("Joker", 200)
 			.isVillain()
-			.isWounded()
 			.build();
 }

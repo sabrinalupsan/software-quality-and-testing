@@ -76,8 +76,7 @@ public class Superhero {
 			return this;
 		}
 		
-		public Superhero build()
-		{
+		public Superhero build() {
 			return this.superhero;
 		}
 		

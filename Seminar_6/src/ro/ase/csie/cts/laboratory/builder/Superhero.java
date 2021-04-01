@@ -6,10 +6,8 @@ public class Superhero {
 	private int lifePoints;
 	private boolean isVillain;
 	private boolean isWounded;
-	
 	private WeaponInterface rightWeapon;
 	private WeaponInterface leftWeapon;
-	
 	private SuperPowerInterface superPower;
 	private SuperPowerInterface superSuperPower;
 	

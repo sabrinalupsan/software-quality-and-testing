@@ -7,6 +7,6 @@ public class TestSuperhero {
 	//init the hero - don't forget to do it
 	
 	//still wrong:
-	//Superhero hero2 = new Superhero("Superman", 100, false, false, new Weapon(), new Weapon(), superPower, superSuperPower)
+	Superhero hero2 = new Superhero("Superman", 100, false, false, new Weapon(), new Weapon(), new Flying(), new Flying());
 
 }

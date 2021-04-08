@@ -1,0 +1,33 @@
+Meaningful Names
+-changed the package name
+-changed to Camel Case for all variables (=> loanValue, accountType) and functions (toString)
+-renamed calculate function to calculateTotalAccountsFee to be meaningful
+-renamed rate to accountPercentageRate to make it clear
+-renamed the parameter names for functions and constructor to be relevant
+
+Classes
+-deleted useless print method to keep the class small
+-use .this as much as possible
+-used ENUM instead of int for accountType
+-added a validator interface and service to validate Account's attributes to avoid DIP
+-changed access modifier for attributes
+-in order to prevent DIP I made an interface and a class that extends it in order to compute the account fee in a different class (so we don't change the Account class)
+
+Functions
+-the Account constructor was doing the same thing as the setValue function (=> repeating the code)
+-the loan function had an irrelevant name (=> getLoan())
+-the getters were doing two things (both outputting to the console and returning the value)
+-calculateTotalAccountsFee was not doing only one thing
+-added AccountInterface in order to make sure the getRate is implemented everywhere
+-changed its name because it is payment not rate
+
+Formatting
+-variables were not separated by a comma AND a space
+-closing braces were not on the same line for else
+
+Comments
+-eliminated comment // 1.25% broker's fee because now it is explained by the static variable
+-eliminated comment // must have method - the lead has requested it in all classes after adding AccountInterface
+
+Exceptions
+-eliminated generic Exceptions with custom Exceptions (ex NegativeValueException)

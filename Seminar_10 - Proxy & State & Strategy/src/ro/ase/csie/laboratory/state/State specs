@@ -1,0 +1,4 @@
+2. Game characters actions are affected by their state
+- the gameplay is different
+- the action effects are different
+- the way the superhero moves is affected by its state (lifepoints)

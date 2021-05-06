@@ -1,0 +1,4 @@
+3. Depending on the involvement in the game (time spent, activity during the game, etc.) players receive bonus points.
+This strategy is established by the marketing department and changes depending on other campaigns, time of year, etc.
+Find a solution that allows:
+- modifying the strategy for granting the runtime bonus without modifying the implementation of the game. It is considered that currently there are 3 strategies / ways to grant the bonus.

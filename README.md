@@ -8,7 +8,7 @@ Studied design patterns:
    Singleton,
    Simple Factory, Factory Method, Abstract Factory,
    Builder,
-   Prototype,
+   Prototype
    
 2. Structural - 
    Adapter,
@@ -16,7 +16,7 @@ Studied design patterns:
    Decorator,
    Proxy,
    Composite,
-   Flyweight,
+   Flyweight
    
 3. Behavioural - 
    Strategy,
@@ -25,4 +25,4 @@ Studied design patterns:
    Command,
    Observer,
    Memento,
-   Template,
+   Template

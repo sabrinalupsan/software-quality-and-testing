@@ -10,7 +10,7 @@ Studied design patterns:
    Builder
    Prototype
    
-2. Structural 
+2. Structural - 
    Adapter
    Facade
    Decorator
@@ -18,7 +18,7 @@ Studied design patterns:
    Composite
    Flyweight
    
-3. Behavioural
+3. Behavioural - 
    Strategy
    State
    Chain of Responsability

@@ -13,6 +13,6 @@ public class TestMemento {
 		superman.restore(initialSave);
 		System.out.println("Life points: "+superman.lifePoints);
 
-	}
+		}
 
 }

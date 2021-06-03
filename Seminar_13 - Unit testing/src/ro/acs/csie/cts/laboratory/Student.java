@@ -54,7 +54,7 @@ public class Student {
 
 
 	public void setGrades(ArrayList<Integer> grades) throws WrongGradeException {
-		this.grades = grades;
+		this.grades = (ArrayList<Integer>) grades.clone();
 	}
 	
 	

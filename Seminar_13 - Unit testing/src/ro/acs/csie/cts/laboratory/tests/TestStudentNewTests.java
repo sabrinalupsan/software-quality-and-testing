@@ -25,6 +25,7 @@ public class TestStudentNewTests {
 	static String initialName;
 	static int initialAge;
 	static int initialNoGrades;
+	static ArrayList<Integer> performanceGrades;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -37,6 +38,15 @@ public class TestStudentNewTests {
 		for(int i=0; i< initialNoGrades; i++) {
 			grades.add(random.nextInt(Student.MAX_GRADE) + 1);
 		}
+		student = new Student(initialName, initialAge, grades);
+
+		ArrayList<Integer> performanceGrades = new ArrayList<Integer>();
+		int noGrades2 = (int) 1e6;
+		for(int j=0; j<noGrades2; j++) {
+			performanceGrades.add(random.nextInt(Student.MAX_GRADE)+1);
+		}
+		student.setGrades(performanceGrades);
+		
 		
 	}
 
@@ -98,5 +108,36 @@ public class TestStudentNewTests {
 				grades, studentGrades);
 		
 	}
+	
+	@Test
+	public void testGetGradesAveragePerformance() throws WrongGradeException {
+		ArrayList<Integer> grades = new ArrayList<Integer>();
+		int noGrades = (int) 1e6;
+		Random random = new Random();
+		for(int i=0; i<noGrades; i++) {
+			grades.add(random.nextInt(Student.MAX_GRADE)+1);
+		student.setGrades(grades);
+		
+		long tStart = System.currentTimeMillis();
+		student.getGradesAverage();
+		long tFinal = System.currentTimeMillis();
+		
+		long delta = tFinal - tStart;
+		
+		long perfomanceLimit = 6;
+		if(delta <= perfomanceLimit)
+			assertTrue(true);
+		else
+			fail("Takes too long");
+		
+		}
+	}
 
+	@Test(timeout = 12)
+	public void testGetGradesAveragePerformanceTwo() throws WrongGradeException {
+		
+		student.setGrades(performanceGrades);
+		student.getGradesAverage();
+
+	}
 }
